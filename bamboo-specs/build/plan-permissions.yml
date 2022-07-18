@@ -5,7 +5,6 @@ plan-permissions:
   - users: !include 'permissions/dev-users.yml'
     permissions:
       - view
-      - edit
       - build
   - roles:
       - logged-in
