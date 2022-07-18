@@ -1,2 +1,5 @@
+
 .env
 .docker
+
+ci_variables
