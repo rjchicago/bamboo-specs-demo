@@ -1,0 +1,26 @@
+version: '3.8'
+
+volumes:
+  bamboo_data:
+  postgres_data:
+
+services:
+  bamboo:
+    image: atlassian/bamboo
+    container_name: bamboo
+    ports:
+      - 8085:8085
+      - 54663:54663
+    volumes:
+      - bamboo_data:/var/atlassian/application-data/bamboo_data:/var/atlassian/application-data/
+  postgres:
+    image: "postgres"
+    container_name: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: bamboo
+      POSTGRES_PASSWORD: bamboo
+      POSTGRES_DB: bamboo
