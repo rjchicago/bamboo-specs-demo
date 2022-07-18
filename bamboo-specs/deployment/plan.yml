@@ -1,8 +1,8 @@
 ---
 version: 2
 deployment:
-  name: {{REPLACE_DEPLOY_NAME}}
-  source-plan: {{REPLACE_PROJECT_KEY}}-{{REPLACE_BUILD_KEY}}
+  name: Bamboo Specs Demo
+  source-plan: DEMO-BSD
 
 release-naming:
   next-version-name: ${bamboo.ci_variables.VERSION}

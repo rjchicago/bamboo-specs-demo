@@ -1,6 +1,6 @@
 ---
 version: 2
-deployment: {{REPLACE_DEPLOY_NAME}}
+deployment: Bamboo Specs Demo
 
 # These permissions apply to the deployment project
 deployment-permissions:

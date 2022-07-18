@@ -1,6 +1,6 @@
 ---
 version: 2
-plan: {{REPLACE_PROJECT_KEY}}-{{REPLACE_BUILD_KEY}}
+plan: DEMO-BSD
 plan-permissions:
   - users: !include 'permissions/dev-users.yml'
     permissions:

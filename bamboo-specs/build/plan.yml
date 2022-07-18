@@ -1,9 +1,9 @@
 ---
 version: 2
 plan:
-  project-key: {{REPLACE_PROJECT_KEY}}
-  name: {{REPLACE_BUILD_NAME}}
-  key: {{REPLACE_BUILD_KEY}}
+  project-key: DEMO
+  name: Bamboo Specs Demo
+  key: BSD
 
 triggers:
   - polling:
