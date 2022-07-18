@@ -25,16 +25,13 @@ if [[ ! -z $DOCKER_REGISTRY_USER ]] && [[ -z $DOCKER_REGISTRY_PASSWORD ]] ; then
 fi
 
 # build
-docker-compose -f $COMPOSE_FILE build {{REPLACE_SERVICE_NAME}}
-# TODO: docker-compose up, test, etc...
-# mkdir -p ./test-reports # <-- create mapped volume directories
-# docker-compose -f $COMPOSE_FILE up -d --build
-# docker-compose -f $COMPOSE_FILE exec {{REPLACE_SERVICE_NAME}} npm test
+docker-compose -f $COMPOSE_FILE build
+# test...
 
 # PUSH TO DOCKER REGISTRY
 if [[ ! -z $DOCKER_REGISTRY_PASSWORD ]] ; then
   export DOCKER_CONFIG="${bamboo_build_working_directory:-$(pwd)}/.docker"
   echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u $DOCKER_REGISTRY_USER --password-stdin $DOCKER_REGISTRY_URL
-  docker-compose -f $COMPOSE_FILE push {{REPLACE_SERVICE_NAME}}
+  docker-compose -f $COMPOSE_FILE push
   docker logout $DOCKER_REGISTRY_URL
 fi
