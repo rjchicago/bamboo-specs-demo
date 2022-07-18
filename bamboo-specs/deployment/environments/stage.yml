@@ -1,4 +1,4 @@
-requirements: !include 'deployment/shared/requirements.yml'
+# requirements: !include 'deployment/shared/requirements.yml'
 notifications: !include 'deployment/shared/notifications.yml'
 variables:
   NODE_ENV: stage
