@@ -13,7 +13,7 @@ get_version() {
    local branch=$1
    local build_number=$2
    local re='(master)|(main)|(trunk)'
-   [[ "$branch" =~ $re ]]; then
+   if [[ "$branch" =~ $re ]]; then
       echo "`date -u +%Y%m%d`-$build_number"
    else
       echo safe_string $branch
