@@ -12,8 +12,8 @@ function replace_var() {
   local VAL=$(eval "echo \$$VAR")
   local VAL_ESCAPED=$(sed_escape "$VAL")
   echo "replacing {{$VAR}} --> $VAL"
-  find . -type f -regextype posix-extended -regex '^.*\.(sh)|(yml)' \
-    -exec sed -i '' -e "s#{{$VAR}}#$VAL_ESCAPED#g" {} +
+  find . -type f -name "*.yml" -exec sed -i '' -e "s#{{$VAR}}#$VAL_ESCAPED#g" {} +
+  find . -type f -name "*.sh" -exec sed -i '' -e "s#{{$VAR}}#$VAL_ESCAPED#g" {} +
 }
 
 # replace vars
