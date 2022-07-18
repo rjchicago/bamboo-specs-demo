@@ -16,7 +16,7 @@ get_version() {
    if [[ "$branch" =~ $re ]]; then
       echo "`date -u +%Y%m%d`-$build_number"
    else
-      echo safe_string $branch
+      echo $(safe_string $branch)
    fi
 }
 
