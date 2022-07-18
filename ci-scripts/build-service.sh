@@ -6,11 +6,9 @@ cleanup() {
   # script cleanup here
 }
 
-export COMPOSE_INTERACTIVE_NO_CLI=1
 export VERSION=${bamboo_ci_variables_VERSION:-test}
 
-COMPOSE_FILE=${bamboo_compose_file:-docker-compose.ci.yml}
-DOCKER_REGISTRY_URL=${bamboo_docker_registry_url:-dtr.cnvr.net}
+DOCKER_REGISTRY_URL=${bamboo_docker_registry_url:-}
 DOCKER_REGISTRY_USER=${bamboo_docker_registry_user:-}
 DOCKER_REGISTRY_PASSWORD=${bamboo_docker_registry_password:-}
 
@@ -25,13 +23,13 @@ if [[ ! -z $DOCKER_REGISTRY_USER ]] && [[ -z $DOCKER_REGISTRY_PASSWORD ]] ; then
 fi
 
 # build
-docker-compose -f $COMPOSE_FILE build
+docker-compose build
 # test...
 
 # PUSH TO DOCKER REGISTRY
 if [[ ! -z $DOCKER_REGISTRY_PASSWORD ]] ; then
   export DOCKER_CONFIG="${bamboo_build_working_directory:-$(pwd)}/.docker"
   echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u $DOCKER_REGISTRY_USER --password-stdin $DOCKER_REGISTRY_URL
-  docker-compose -f $COMPOSE_FILE push
+  docker-compose push
   docker logout $DOCKER_REGISTRY_URL
 fi
