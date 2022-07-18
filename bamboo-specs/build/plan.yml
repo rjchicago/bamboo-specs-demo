@@ -10,9 +10,10 @@ triggers:
       period: 180
 
 variables:
-  docker_registry_url:
-  docker_registry_user:
-  docker_registry_password:
+  foo: bar
+  # docker_registry_url:
+  # docker_registry_user:
+  # docker_registry_password:
 
 stages:
   - Pre-Build:

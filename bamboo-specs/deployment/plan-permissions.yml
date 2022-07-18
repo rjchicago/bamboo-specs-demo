@@ -25,13 +25,13 @@ default-environment-permissions:
     permissions:
       - view
 
-environment-permissions:
-  - production:
-    - groups: !include 'permissions/prod-groups.yml'
-      permissions:
-        - view
-        - deploy
-    - roles:
-        - logged-in
-      permissions:
-        - view
+# environment-permissions:
+#   - production:
+#     - groups: !include 'permissions/prod-groups.yml'
+#       permissions:
+#         - view
+#         - deploy
+#     - roles:
+#         - logged-in
+#       permissions:
+#         - view

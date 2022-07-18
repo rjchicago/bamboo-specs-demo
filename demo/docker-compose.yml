@@ -14,7 +14,7 @@ services:
     volumes:
       - bamboo_data:/var/atlassian/application-data/bamboo_data:/var/atlassian/application-data/
   postgres:
-    image: "postgres"
+    image: postgres
     container_name: postgres
     ports:
       - 5432:5432
