@@ -19,16 +19,8 @@ code .
 ## Bamboo
 
 ``` sh
-docker volume create --name bamboo_data
-docker run -d \
-  -v bamboo_data:/var/atlassian/application-data/bamboo \
-  --name="bamboo" \
-  -p 8085:8085 \
-  -p 54663:54663 \
-  atlassian/bamboo
-
-docker volume create --name bamboo_postgres
-
+cd demo
+docker-compose up -d
 open http://localhost:8085
 ```
 
