@@ -1,0 +1,29 @@
+---
+version: 2
+plan:
+  project-key: {{REPLACE_PROJECT_KEY}}
+  name: {{REPLACE_BUILD_NAME}}
+  key: {{REPLACE_BUILD_KEY}}
+
+triggers:
+  - polling:
+      period: 180
+
+variables:
+  docker_registry_url: {{REPLACE_DOCKER_REGISTRY_URL}}
+  docker_registry_user: {{REPLACE_DOCKER_REGISTRY_USER}}
+  docker_registry_password: {{REPLACE_DOCKER_REGISTRY_ENCRYPTED_PASSWORD}}
+  compose_file: {{REPLACE_COMPOSE_FILE}}
+
+stages:
+  - Pre-Build:
+      manual: false
+      jobs:
+        - Build Artifacts
+  - Build:
+      manual: false
+      jobs:
+        - Build Service
+
+Build Artifacts: !include 'build/jobs/build-artifacts.yml'
+Build Service: !include 'build/jobs/build-service.yml'

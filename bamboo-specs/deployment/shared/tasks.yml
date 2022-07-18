@@ -1,0 +1,3 @@
+- clean
+- artifact-download
+- script: sh ci-scripts/deploy.sh

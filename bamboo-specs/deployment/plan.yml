@@ -1,0 +1,17 @@
+---
+version: 2
+deployment:
+  name: {{REPLACE_DEPLOY_NAME}}
+  source-plan: {{REPLACE_PROJECT_KEY}}-{{REPLACE_BUILD_KEY}}
+
+release-naming:
+  next-version-name: ${bamboo.ci_variables.VERSION}
+
+environments:
+  - integration
+  - stage
+  - production
+
+integration: !include 'deployment/environments/integration.yml'
+stage: !include 'deployment/environments/stage.yml'
+production: !include 'deployment/environments/production.yml'

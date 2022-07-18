@@ -1,0 +1,6 @@
+requirements: !include 'deployment/shared/requirements.yml'
+notifications: !include 'deployment/shared/notifications.yml'
+variables:
+  NODE_ENV: production
+  REPLICAS: 3
+tasks: !include 'deployment/shared/tasks.yml'

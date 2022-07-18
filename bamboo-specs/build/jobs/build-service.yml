@@ -1,0 +1,10 @@
+    key: SERVICE
+    requirements:
+        - system.docker.executable # required for Docker builds
+    tasks:
+        - clean
+        - script: sh ci-scripts/build-service.sh
+    final-tasks:
+        - script:  sh ci-scripts/build-service-final.sh
+    other:
+        clean-working-dir: true

@@ -1,0 +1,9 @@
+# https://docs.atlassian.com/bamboo-specs-docs/latest
+---
+!include 'build/plan.yml'
+---
+!include 'build/plan-permissions.yml'
+---
+!include 'deployment/plan.yml'
+---
+!include 'deployment/plan-permissions.yml'

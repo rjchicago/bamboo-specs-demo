@@ -1,0 +1,7 @@
+version: "3.8"
+
+services:
+  demo_service:
+    build: .
+    image: rjchicago/bamboo-specs-demo:${VERSION:-latest}
+

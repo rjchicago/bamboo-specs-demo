@@ -1,0 +1,19 @@
+    key: ARTIFACTS
+    tasks:
+      - clean
+      - script: sh ci-scripts/generate-ci_variables.sh
+      - inject-variables:
+          file: ci_variables
+          scope: RESULT
+          namespace: ci_variables
+    artifacts:
+      - name: CI_VARIABLES
+        pattern: ci_variables
+        location: ./
+        shared: true
+        required: true
+      - name: CI_SCRIPTS
+        pattern: ci-scripts/*
+        location: ./
+        shared: true
+        required: true

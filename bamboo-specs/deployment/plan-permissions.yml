@@ -1,0 +1,37 @@
+---
+version: 2
+deployment: {{REPLACE_DEPLOY_NAME}}
+
+# These permissions apply to the deployment project
+deployment-permissions:
+  - users: !include 'permissions/dev-users.yml'
+    permissions:
+      - view
+      - edit
+  - roles:
+      - logged-in
+    permissions:
+      - view
+
+# These permissions apply to all environments plans
+default-environment-permissions:
+  - users: !include 'permissions/dev-users.yml'
+    permissions:
+      - view
+      - edit
+      - deploy
+  - roles:
+      - logged-in
+    permissions:
+      - view
+
+environment-permissions:
+  - production:
+    - groups: !include 'permissions/prod-groups.yml'
+      permissions:
+        - view
+        - deploy
+    - roles:
+        - logged-in
+      permissions:
+        - view

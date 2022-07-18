@@ -1,0 +1,13 @@
+---
+version: 2
+plan: {{REPLACE_PROJECT_KEY}}-{{REPLACE_BUILD_KEY}}
+plan-permissions:
+  - users: !include 'permissions/dev-users.yml'
+    permissions:
+      - view
+      - edit
+      - build
+  - roles:
+      - logged-in
+    permissions:
+      - view

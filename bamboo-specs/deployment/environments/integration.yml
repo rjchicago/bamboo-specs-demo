@@ -1,0 +1,9 @@
+requirements: !include 'deployment/shared/requirements.yml'
+notifications: !include 'deployment/shared/notifications.yml'
+variables:
+  NODE_ENV: int
+  REPLICAS: 1
+tasks: !include 'deployment/shared/tasks.yml'
+triggers:
+  - stage-success:
+      stage: Build

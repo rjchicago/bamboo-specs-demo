@@ -1,0 +1,3 @@
+- events: deployment-finished
+  recipients:
+    - users: !include 'permissions/dev-users.yml'
