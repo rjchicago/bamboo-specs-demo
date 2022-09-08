@@ -1,5 +1,7 @@
 # Bamboo Specs Demo
 
+[![video](https://img.youtube.com/vi/D_Lg3EqN0IA/0.jpg)](https://www.youtube.com/watch?v=D_Lg3EqN0IA)
+
 ## usage
 
 ``` sh
